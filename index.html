@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>try{if(sessionStorage.getItem("healIntro"))document.documentElement.classList.add("no-intro");else sessionStorage.setItem("healIntro","1");}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>H.E.A.L. | Handheld Bipolar Grasping Platform</title>
 <meta name="description" content="H.E.A.L. is building a cordless, single handed bipolar grasping platform for precision hemostasis in phlebectomy. Investor and clinical partner information.">
@@ -38,26 +39,37 @@
 </header>
 <main>
 
+<!-- INTRO -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-mark">
+    <div class="intro-letters"><span>H.</span><span>E.</span><span>A.</span><span>L.</span></div>
+    <div class="intro-rule"></div>
+    <div class="intro-slogan"><span>Handheld Bipolar Grasping Platform</span></div>
+    <p class="intro-tag">Advancing venous care through simplicity</p>
+  </div>
+</div>
+<script>(function(){var i=document.getElementById('intro');if(i)i.addEventListener('click',function(){i.style.display='none';document.documentElement.classList.add('no-intro');});})();</script>
+
 <!-- HERO -->
 <section class="hero-dark">
   <div class="wrap hero-dark-grid">
     <div class="stack min0" style="gap:24px">
-      <p class="eyebrow" style="color:#7FB0FF">Handheld bipolar grasping platform</p>
-      <h1>Precision grasping and bipolar coagulation in one surgical instrument.</h1>
-      <p class="lede">H.E.A.L. is developing a handheld surgical platform that combines controlled tissue grasping with bipolar coagulation, simplifying hemostasis during ambulatory phlebectomy and other precision procedures.</p>
-      <div class="hero-cta">
-        <a href="#technology" class="btn btn-blue">Explore the Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="contact.html" class="btn btn-ghost-light">Request the Investor Deck</a>
+      <div class="hero-lockup rise"><span class="wordmark">H.E.A.L.</span><span class="sl">Handheld bipolar<br>grasping platform</span></div>
+      <h1 class="rise d1">Precision grasping and bipolar coagulation in one surgical instrument.</h1>
+      <p class="lede rise d2">H.E.A.L. is developing a handheld surgical platform that combines controlled tissue grasping with bipolar coagulation, simplifying hemostasis during ambulatory phlebectomy and other precision procedures.</p>
+      <div class="hero-cta rise d3">
+        <a href="#technology" class="btn btn-solid">Explore the Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="contact.html" class="btn">Request the Investor Deck</a>
       </div>
-      <div class="hero-icons">
+      <div class="hero-icons rise d4">
         <div class="hero-icon"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></span><p>Precise<br>hemostasis</p></div>
         <div class="hero-icon"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19l8-8"/></svg></span><p>Minimally<br>invasive</p></div>
         <div class="hero-icon"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></span><p>Efficient<br>workflow</p></div>
         <div class="hero-icon"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="3"/><circle cx="16.5" cy="10" r="2.5"/><path d="M3.5 19c.5-3.2 2.8-5 5.5-5s5 1.8 5.5 5"/><path d="M14.5 14.6c.6-.4 1.3-.6 2-.6 2.3 0 3.8 1.6 4 4"/></svg></span><p>Versatile<br>applications</p></div>
       </div>
-      <p class="reg-note">Device under development. Not available for commercial sale in the United States. Regulatory clearance has not yet been obtained.</p>
+      <p class="reg-note rise d5">Device under development. Not available for commercial sale in the United States. Regulatory clearance has not yet been obtained.</p>
     </div>
-    <div class="stage min0">
+    <div class="stage min0 rise d2">
       <img src="assets/device-render.jpg" width="1448" height="1086" alt="The complete H.E.A.L. device: bipolar grasping jaws on a disposable tip cartridge, a slim shaft, and a white and graphite reusable pistol grip handle with an energy button and battery indicator.">
     </div>
   </div>
