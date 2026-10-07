@@ -2,7 +2,7 @@
 
 Investor focused redesign of heal-veins.com for H.E.A.L. (Healthcare Engineering & Life Science).
 
-Static site, no build step. Visual direction follows the H.E.A.L. product sheet: clinical white, navy wordmark, cyan accent. Shared styles live in `assets/heal-v3.css`; product imagery in `assets/`.
+Static site, no build step. Visual direction follows the H.E.A.L. product sheet: clinical white, navy wordmark, cyan accent. Shared styles live in `assets/heal-v4.css`; product imagery in `assets/`.
 
 Three pages:
 
