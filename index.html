@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script>try{if(sessionStorage.getItem("healIntro"))document.documentElement.classList.add("no-intro");else sessionStorage.setItem("healIntro","1");}catch(e){}</script>
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>H.E.A.L. | Handheld Bipolar Grasping Platform</title>
 <meta name="description" content="H.E.A.L. is building a cordless, single handed bipolar grasping platform for precision hemostasis in phlebectomy. Investor and clinical partner information.">
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Red+Hat+Display:wght@500;600&family=Red+Hat+Text:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/heal.css">
+<link rel="stylesheet" href="assets/heal-v3.css">
 </head>
 <body>
 <header class="site-header">
@@ -41,12 +41,14 @@
 
 <!-- INTRO -->
 <div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-rings"><i></i><i></i><i></i></div>
   <div class="intro-mark">
     <div class="intro-letters"><span>H.</span><span>E.</span><span>A.</span><span>L.</span></div>
     <div class="intro-rule"></div>
     <div class="intro-slogan"><span>Handheld Bipolar Grasping Platform</span></div>
     <p class="intro-tag">Advancing venous care through simplicity</p>
   </div>
+  <p class="intro-skip">Click to skip</p>
 </div>
 <script>(function(){var i=document.getElementById('intro');if(i)i.addEventListener('click',function(){i.style.display='none';document.documentElement.classList.add('no-intro');});})();</script>
 
@@ -240,9 +242,9 @@
       <p class="body">Varicose veins and chronic venous disease are common, and ambulatory phlebectomy is widely performed in the United States. The platform also has potential in dermatology and other surgical specialties.</p>
     </div>
     <div class="grid-4">
-      <div class="stat"><p class="num">35%</p><p class="body small">of U.S. adults have chronic venous disease</p></div>
-      <div class="stat"><p class="num">$4–10B</p><p class="body small">spent each year by the U.S. healthcare system on chronic venous disease</p></div>
-      <div class="stat"><p class="num">$2.6B</p><p class="body small">projected global varicose vein treatment market by 2032</p></div>
+      <div class="stat"><p class="num" data-to="35" data-suffix="%">35%</p><p class="body small">of U.S. adults have chronic venous disease</p></div>
+      <div class="stat"><p class="num" data-to="10" data-prefix="$4–" data-suffix="B">$4–10B</p><p class="body small">spent each year by the U.S. healthcare system on chronic venous disease</p></div>
+      <div class="stat"><p class="num" data-to="2.6" data-dec="1" data-prefix="$" data-suffix="B">$2.6B</p><p class="body small">projected global varicose vein treatment market by 2032</p></div>
       <div class="stat"><p class="num" style="font-size:clamp(28px,3vw,40px);padding-block:6px">Expansion</p><p class="body small">into dermatology, vascular surgery and office based procedures</p></div>
     </div>
     <p class="footnote">Market figures from H.E.A.L. research. Full citations available in the investor deck.</p>
@@ -362,5 +364,6 @@
 <script>
 (function(){var b=document.getElementById('menu-btn'),n=document.getElementById('nav-links');if(!b||!n)return;b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded','false');}});})();
 </script>
+<script src="assets/heal.js?v=1" defer></script>
 </body>
 </html>
