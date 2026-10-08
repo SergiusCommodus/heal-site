@@ -14,7 +14,7 @@ Static site, no build step needed to host. Pages:
 Assets:
 
 - `assets/heal.css`, `assets/heal.js`: readable source
-- `assets/heal-v5.min.css`, `assets/heal-v5.min.js`: minified files the pages load. After editing the source, regenerate these and bump the version number in the file name so browsers and GitHub's cache pick up the change.
+- `assets/heal-v6.min.css`, `assets/heal-v5.min.js`: minified files the pages load. After editing the source, regenerate these and bump the version number in the file name so browsers and GitHub's cache pick up the change.
 - Images ship as JPG with WebP versions (`name.webp`, `name-480.webp`, `name-800.webp`). Replace both when swapping an image.
 
 SEO: canonical links, Open Graph and Twitter cards with absolute image URLs, Organization structured data, `robots.txt`, `sitemap.xml`.
