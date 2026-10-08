@@ -349,3 +349,4 @@ sup{font-size:11px;color:var(--blue)}
   .js .roadmap::before,.js .steps-line::before{transform:none !important}
   .stage img,.dot::before{animation:none}
 }
+picture{display:contents}

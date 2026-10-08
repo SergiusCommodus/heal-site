@@ -8,15 +8,25 @@
 <meta name="description" content="Investor inquiries, clinical partnerships and general contact for H.E.A.L.">
 <meta property="og:title" content="Contact | H.E.A.L.">
 <meta property="og:description" content="Investor inquiries, clinical partnerships and general contact for H.E.A.L.">
+<link rel="canonical" href="https://sergiuscommodus.github.io/heal-site/contact.html">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/device-render.jpg">
+<meta property="og:site_name" content="H.E.A.L.">
+<meta property="og:url" content="https://sergiuscommodus.github.io/heal-site/contact.html">
+<meta property="og:image" content="https://sergiuscommodus.github.io/heal-site/assets/device-render.jpg">
+<meta property="og:image:width" content="1448">
+<meta property="og:image:height" content="1086">
+<meta property="og:image:alt" content="The H.E.A.L. handheld bipolar grasping device">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact | H.E.A.L.">
+<meta name="twitter:description" content="Investor inquiries, clinical partnerships and general contact for H.E.A.L.">
+<meta name="twitter:image" content="https://sergiuscommodus.github.io/heal-site/assets/device-render.jpg">
 <meta name="theme-color" content="#0E1D33">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Red+Hat+Display:wght@500;600&family=Red+Hat+Text:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/heal-v4.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&amp;family=Red+Hat+Display:wght@500;600&amp;family=Red+Hat+Text:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/heal-v5.min.css">
 </head>
 <body>
 <header class="site-header">
@@ -47,18 +57,25 @@
       <hr class="rule">
       <p class="lede">Whether you are an investor evaluating the round, a physician interested in early adoption, or a manufacturing or distribution partner, we would like to hear from you.</p>
       <div class="stack-sm" style="gap:0">
-        <div class="contact-line"><p class="eyebrow">Investor relations</p><p class="v">[investors@heal-veins.com]</p></div>
-        <div class="contact-line"><p class="eyebrow">General inquiries</p><p class="v">[info@heal-veins.com]</p></div>
-        <div class="contact-line"><p class="eyebrow">Phone</p><p class="v">[+1 (000) 000-0000]</p></div>
+        <!-- Add when ready:
+        <div class="contact-line"><p class="eyebrow">Investor relations</p><p class="v">investors@heal-veins.com</p></div>
+        <div class="contact-line"><p class="eyebrow">Phone</p><p class="v">+1 (000) 000-0000</p></div>
+        -->
         <div class="contact-line"><p class="eyebrow">LinkedIn</p><a href="https://www.linkedin.com/company/healthcare-engineering-and-life-science/" rel="noopener" target="_blank" style="font-family:var(--display);font-weight:600">Healthcare Engineering and Life Science</a></div>
       </div>
     </div>
 
     <div class="card min0" style="padding:clamp(24px,4vw,40px)">
-      <div id="form-sent" hidden class="stack" style="min-height:320px;justify-content:center">
-        <p class="eyebrow accent">Message received</p>
+      <div id="form-sent" hidden class="stack" style="min-height:320px;justify-content:center" role="status">
+        <p class="eyebrow accent">Message sent</p>
         <p class="h-section" style="font-size:26px">Thank you. We will be in touch shortly.</p>
         <p class="body">Investor deck requests are typically answered within two business days.</p>
+      </div>
+      <div id="form-offline" hidden class="stack" style="min-height:320px;justify-content:center" role="status">
+        <p class="eyebrow accent">Online form coming soon</p>
+        <p class="h-section" style="font-size:26px">Please reach the team on LinkedIn for now.</p>
+        <p class="body">Our inquiry form is still being connected, so your message was not sent. Message us on LinkedIn and a founder will reply directly.</p>
+        <div class="hero-cta"><a class="btn btn-solid" href="https://www.linkedin.com/company/healthcare-engineering-and-life-science/" rel="noopener" target="_blank">Message us on LinkedIn</a></div>
       </div>
       <form id="contact-form" class="stack">
         <p class="eyebrow accent">Send a message</p>
@@ -81,9 +98,10 @@
         </div>
         <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us a little about your interest in H.E.A.L."></textarea></div>
         <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-          <button type="submit" class="btn btn-solid">Send Message</button>
+          <button type="submit" class="btn btn-solid" id="send-btn">Send Message</button>
           <p class="footnote">We do not share your information.</p>
         </div>
+        <p id="form-error" class="footnote" hidden role="alert" style="color:#B84A3A">Your message could not be sent. Check your connection and try again, or reach us on LinkedIn.</p>
       </form>
     </div>
   </div>
@@ -91,7 +109,20 @@
 
 </main>
 <script>
-(function(){var f=document.getElementById('contact-form'),d=document.getElementById('form-sent');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();/* TODO: connect to a form service (Formspree, Netlify Forms, HubSpot) */f.hidden=true;d.hidden=false;});})();
+/* To turn the form on: create a free form at formspree.io (or similar), then paste its URL here. */
+var HEAL_FORM_ENDPOINT = "";
+(function(){
+  var f=document.getElementById('contact-form'),ok=document.getElementById('form-sent'),off=document.getElementById('form-offline'),err=document.getElementById('form-error'),btn=document.getElementById('send-btn');
+  if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    if(!HEAL_FORM_ENDPOINT){f.hidden=true;off.hidden=false;return;}
+    btn.disabled=true;btn.textContent='Sending…';
+    fetch(HEAL_FORM_ENDPOINT,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){if(!r.ok)throw new Error(r.status);f.hidden=true;ok.hidden=false;})
+      .catch(function(){err.hidden=false;btn.disabled=false;btn.textContent='Send Message';});
+  });
+})();
 </script>
 
 <footer class="site-footer">
@@ -126,7 +157,7 @@
       </div>
     </div>
     <div class="footer-legal">
-      <p>© 2026 H.E.A.L. All rights reserved. [Privacy Policy] · [Terms of Use]</p>
+      <p>© 2026 H.E.A.L. All rights reserved.</p>
       <p>Device under development. Not available for commercial sale in the United States. Regulatory clearance has not yet been obtained.</p>
     </div>
   </div>
@@ -134,6 +165,6 @@
 <script>
 (function(){var b=document.getElementById('menu-btn'),n=document.getElementById('nav-links');if(!b||!n)return;b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded','false');}});})();
 </script>
-<script src="assets/heal.js?v=1" defer></script>
+<script src="assets/heal-v5.min.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sergiuscommodus.github.io/heal-site/sitemap.xml
